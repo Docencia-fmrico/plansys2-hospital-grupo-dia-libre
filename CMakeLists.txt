@@ -44,8 +44,8 @@ ament_target_dependencies(pick_action_node ${dependencies})
 add_executable(drop_action_node src/drop_action_node.cpp)
 ament_target_dependencies(drop_action_node ${dependencies})
 
-add_executable(nei_controller_node src/nei_controller.cpp)
-ament_target_dependencies(nei_controller_node ${dependencies})
+add_executable(nei_controller src/nei_controller.cpp)
+ament_target_dependencies(nei_controller ${dependencies})
 
 install(DIRECTORY launch pddl params DESTINATION share/${PROJECT_NAME})
 
