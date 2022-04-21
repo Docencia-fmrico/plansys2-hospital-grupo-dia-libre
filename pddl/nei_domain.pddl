@@ -1,13 +1,12 @@
 (define (domain nei)
 (:requirements :strips :typing :negative-preconditions :adl :fluents :durative-actions)
 (:types
-  room corridor zone - location
+  room - location
   door elevator - connector
   robot object tool - item
 )
 (:predicates 
   (robotAt ?r - robot ?l - location)
-  (zoneAt ?z ?l - location)
 
   (objectAt ?o - object ?l - location)
   (robotTool ?r - robot ?t - tool)
@@ -22,41 +21,12 @@
     :condition 
       (and
         (robotAt ?robot ?prev_room)
-        (areConnected ?prev_room ?next_room)
       )
     :effect 
       (and  
         (robotAt ?robot ?next_room)
         (not (robotAt ?robot ?prev_room))
       )
-)
-
-
-(:action enter_zone
-    :parameters ( ?r - robot ?z ?l - location)
-    :duration (= ?duration 3)
-    :condition (and
-      (zoneAt ?z ?l)
-      (robotAt ?r ?l)
-     )
-    :effect (and
-      (not (robotAt ?r ?l))
-      (robotAt ?r ?z)
-     )
-)
-
-(:action leave_zone
-    :parameters ( ?r - robot ?l ?z - location)
-    :duration (= ?duration 3)
-    :condition (and
-      (zoneAt ?z ?l)
-      ;(not (robotAt ?r ?l))
-      (robotAt ?r ?z)
-     )
-    :effect (and
-      (robotAt ?r ?l)
-      (not(robotAt ?r ?z))
-     )
 )
 
 (:action pick
