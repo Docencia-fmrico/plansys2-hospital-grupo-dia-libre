@@ -51,7 +51,34 @@ public:
   {
     problem_expert_->addInstance(plansys2::Instance{"tiago", "robot"});
 
-  }
+    problem_expert_->addInstance(plansys2::Instance{"ball1", "object"});
+    problem_expert_->addInstance(plansys2::Instance{"ball2", "object"});
+
+    problem_expert_->addInstance(plansys2::Instance{"room1", "room"});
+    problem_expert_->addInstance(plansys2::Instance{"room2", "room"});
+    problem_expert_->addInstance(plansys2::Instance{"room3", "room"});
+    problem_expert_->addInstance(plansys2::Instance{"room4", "room"});
+    problem_expert_->addInstance(plansys2::Instance{"room5", "room"});
+    problem_expert_->addInstance(plansys2::Instance{"room6", "room"});
+    problem_expert_->addInstance(plansys2::Instance{"room7", "room"});
+    problem_expert_->addInstance(plansys2::Instance{"room8", "room"});
+    problem_expert_->addInstance(plansys2::Instance{"room9", "room"});
+    problem_expert_->addInstance(plansys2::Instance{"room10", "room"});
+    
+    problem_expert_->addInstance(plansys2::Instance{"josetost", "chema"});
+
+    problem_expert_->addInstance(plansys2::Instance{"gripper", "tool"});
+
+    problemexpert->addPredicate(plansys2::Predicate("(robot_at tiago room1)"));
+    problemexpert->addPredicate(plansys2::Predicate("(objectAt ball1 room2)"));
+    problemexpert->addPredicate(plansys2::Predicate("(objectAt ball2 room4)"));
+    problemexpert->addPredicate(plansys2::Predicate("(robotTool tiago gripper)"));
+    problemexpert->addPredicate(plansys2::Predicate("(toolFree gripper)"));
+
+
+
+
+
 
   void step()
   {
