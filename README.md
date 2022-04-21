@@ -3,4 +3,4 @@
 
 # plansys2-hospital-grupo-dia-libre
 
-Primero que nada mapeamos el hospital
+Primero que nada mapeamos el hospital.
