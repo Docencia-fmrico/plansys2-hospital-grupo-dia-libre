@@ -49,41 +49,22 @@ public:
     wp.pose.orientation.w = 1.0;
     waypoints_["room1"] = wp;
 
-    wp.pose.position.x = -0.565;
-    wp.pose.position.y = 10.7;
+    wp.pose.position.x = -0.46;
+    wp.pose.position.y = 10.0;
     waypoints_["room2"] = wp;
 
-    wp.pose.position.x = -5.64;
-    wp.pose.position.y = -14.8;
+    wp.pose.position.x = 3.72;
+    wp.pose.position.y = -9.5;
     waypoints_["room3"] = wp;
 
-    wp.pose.position.x = 8.17;
-    wp.pose.position.y = -3.23;
+    wp.pose.position.x = -3.0;
+    wp.pose.position.y = -9.5;
     waypoints_["room4"] = wp;
 
-    wp.pose.position.x = -5.62;
-    wp.pose.position.y = -4.36;
+    wp.pose.position.x = 7.68;
+    wp.pose.position.y = -4.2;
     waypoints_["room5"] = wp;
 
-    wp.pose.position.x = -37;
-    wp.pose.position.y = 3.51;
-    waypoints_["room6"] = wp;
-
-    wp.pose.position.x = -39.2;
-    wp.pose.position.y = -8.81;
-    waypoints_["room7"] = wp;
-
-    wp.pose.position.x = 6.09;
-    wp.pose.position.y = 7.49;
-    waypoints_["room8"] = wp;
-
-    wp.pose.position.x = -18.5;
-    wp.pose.position.y = 9.51;
-    waypoints_["room9"] = wp;
-
-    wp.pose.position.x = -37.4;
-    wp.pose.position.y = 10.9;
-    waypoints_["room10"] = wp;
 
     using namespace std::placeholders;
     pos_sub_ = create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>(
