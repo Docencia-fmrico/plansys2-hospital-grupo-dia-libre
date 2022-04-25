@@ -144,4 +144,4 @@ ld.add_action(drop_cmd)
 
 ## Video execution
 
-<iframe src="https://drive.google.com/file/d/17pSgFGnalhGdyb-iXo2RSzybQns_hZ7G/preview" width="640" height="480" allow="autoplay"></iframe>
+https://drive.google.com/file/d/17pSgFGnalhGdyb-iXo2RSzybQns_hZ7G/view
