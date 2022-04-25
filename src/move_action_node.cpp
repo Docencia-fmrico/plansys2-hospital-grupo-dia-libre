@@ -40,8 +40,8 @@ public:
     geometry_msgs::msg::PoseStamped wp;
     wp.header.frame_id = "map";
     wp.header.stamp = now();
-    wp.pose.position.x = -8.48;
-    wp.pose.position.y = 10.3;
+    wp.pose.position.x = 0.0;
+    wp.pose.position.y = 0.0;
     wp.pose.position.z = 0.0;
     wp.pose.orientation.x = 0.0;
     wp.pose.orientation.y = 0.0;
@@ -49,20 +49,20 @@ public:
     wp.pose.orientation.w = 1.0;
     waypoints_["room1"] = wp;
 
-    wp.pose.position.x = 1.05;
-    wp.pose.position.y = 14.5;
+    wp.pose.position.x = -0.46;
+    wp.pose.position.y = 10.0;
     waypoints_["room2"] = wp;
 
-    wp.pose.position.x = 1.22;
-    wp.pose.position.y = 5.0;
+    wp.pose.position.x = 3.72;
+    wp.pose.position.y = -9.5;
     waypoints_["room3"] = wp;
 
-    wp.pose.position.x = -32.12;
-    wp.pose.position.y = 12.7;
+    wp.pose.position.x = -3.0;
+    wp.pose.position.y = -9.5;
     waypoints_["room4"] = wp;
 
-    wp.pose.position.x = -23.5;
-    wp.pose.position.y = 5.68;
+    wp.pose.position.x = 7.68;
+    wp.pose.position.y = -4.2;
     waypoints_["room5"] = wp;
 
     wp.pose.position.x = -37;
