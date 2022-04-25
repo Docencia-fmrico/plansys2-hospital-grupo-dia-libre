@@ -141,3 +141,7 @@ ld.add_action(move_cmd)
 ld.add_action(pick_cmd)
 ld.add_action(drop_cmd)
 ```
+
+## Video execution
+
+https://drive.google.com/file/d/17pSgFGnalhGdyb-iXo2RSzybQns_hZ7G/view
