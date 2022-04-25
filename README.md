@@ -126,6 +126,7 @@ We have defined the next problem goals in our different states:
 
 ```
 (and (objectat ball1 room5))
+(and(objectat ball2 room3))
 (and(objectat ball2 room1) (objectat ball1 room1))
 ```
 
