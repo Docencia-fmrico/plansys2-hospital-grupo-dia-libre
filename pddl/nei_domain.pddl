@@ -12,7 +12,6 @@
   (robottool ?r - robot ?t - tool)
   (toolfree ?t - tool)
   (robotcarrying ?r - robot ?t - tool ?o - object)
-
 )
 
 (:durative-action move_location
