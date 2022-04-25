@@ -144,4 +144,4 @@ ld.add_action(drop_cmd)
 
 ## Video execution
 
-https://drive.google.com/file/d/17pSgFGnalhGdyb-iXo2RSzybQns_hZ7G/view
+https://drive.google.com/file/d/17pSgFGnalhGdyb-iXo2RSzybQns_hZ7G/view?usp=sharing
