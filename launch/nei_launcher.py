@@ -36,9 +36,9 @@ def generate_launch_description():
 
     nav2_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(
-            get_package_share_directory('nav2_bringup'),
+            get_package_share_directory('br2_navigation'),
             'launch',
-            'tb3_simulation_launch.py')),
+            'tiago_navigation.launch.py')),
         launch_arguments={
             'autostart': 'true',
             'params_file': os.path.join(example_dir, 'params', 'nav2_params.yaml')
@@ -71,7 +71,7 @@ def generate_launch_description():
 
     # Declare the launch options
     ld.add_action(plansys2_cmd)
-    ld.add_action(nav2_cmd)
+    #ld.add_action(nav2_cmd)
 
     ld.add_action(move_cmd)
     ld.add_action(pick_cmd)

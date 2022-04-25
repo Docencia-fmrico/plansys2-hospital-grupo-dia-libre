@@ -6,13 +6,12 @@
   robot object tool - item
 )
 (:predicates 
-  (robotAt ?r - robot ?l - location)
+  (robotat ?r - robot ?l - location)
 
-  (objectAt ?o - object ?l - location)
-  (robotTool ?r - robot ?t - tool)
-  (toolFree ?t - tool)
-  (robotCarrying ?r - robot ?t - tool ?o - object)
-
+  (objectat ?o - object ?l - location)
+  (robottool ?r - robot ?t - tool)
+  (toolfree ?t - tool)
+  (robotcarrying ?r - robot ?t - tool ?o - object)
 )
 
 (:durative-action move_location
@@ -20,50 +19,51 @@
     :duration (= ?duration 5)
     :condition 
       (and
-        (robotAt ?robot ?prev_room)
+        (at start(robotat ?robot ?prev_room))
       )
     :effect 
       (and  
-        (robotAt ?robot ?next_room)
-        (not (robotAt ?robot ?prev_room))
+        (at end(robotat ?robot ?next_room))
+        (at start(not(robotat ?robot ?prev_room)))
       )
 )
 
-(:action pick
+(:durative-action pick
   :parameters (?o - object ?l - location ?r - robot ?t - tool)
-  :duration (= ?duration 3)
+  :duration (= ?duration 5)
   :condition 
     (and
-      (robotTool ?r ?t)
-      (objectAt ?o ?l)
-      (robotAt ?r ?l)
-      (toolFree ?t)
+      (at start(robottool ?r ?t))
+      (at start(objectat ?o ?l))
+      (at start(robotat ?r ?l))
+      (at start(toolfree ?t))
     )
 :effect 
   (and 
-    (robotCarrying ?r ?t ?o)
-    (not (objectAt ?o ?l))
-    (not (toolFree ?t))
+    (at end(robotcarrying ?r ?t ?o))
+    (at start(not (objectat ?o ?l)))
+    (at start(not (toolfree ?t)))
   )
 )
 
-(:action drop
+(:durative-action drop
 :parameters (?o - object ?l - location ?r - robot ?t - tool)
-:duration (= ?duration 3)
+:duration (= ?duration 5)
 :condition 
   (and 
-    (robotTool ?r ?t)
-    (robotAt ?r ?l)
-    (robotCarrying ?r ?t ?o)
+    (at start(robottool ?r ?t))
+    (at start(robotat ?r ?l))
+    (at start(robotcarrying ?r ?t ?o))
   )
 :effect 
   (and 
-    (objectAt ?o ?l)
-    (toolFree ?t)
-    (not (robotCarrying ?r ?t ?o))
+    (at end(objectat ?o ?l))
+    (at end(toolfree ?t))
+    (at start(not (robotcarrying ?r ?t ?o)))
   )
 )
 
 
 
 )
+
