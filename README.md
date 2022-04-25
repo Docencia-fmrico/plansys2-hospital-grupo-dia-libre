@@ -13,7 +13,7 @@ We used the pddl domain that we created in the assignment before. We needed to d
 
 Move location moves the robot from a point to another. The point does not necesarilly have to be in a room, we just left the typo that we have before.
 
-"""
+```
 (:durative-action move_location
     :parameters (?robot - robot ?prev_room - location ?next_room - location)
     :duration (= ?duration 5)
@@ -27,12 +27,12 @@ Move location moves the robot from a point to another. The point does not necesa
         (at start(not(robotat ?robot ?prev_room)))
       )
 )
-"""
+```
 ### Pick
 
 Pick remained the same as in the previous assignment. As we will not be able to use the robot's gripper whatsoever, the coding solution was emulating it. We will get deeper into it later on.
 
-"""
+```
 (:durative-action pick
   :parameters (?o - object ?l - location ?r - robot ?t - tool)
   :duration (= ?duration 5)
@@ -50,13 +50,13 @@ Pick remained the same as in the previous assignment. As we will not be able to 
     (at start(not (toolfree ?t)))
   )
 )
-"""
+```
 
 ### Drop
 
 Drop was also unchanged from the previous PDDL domain.
 
-"""
+```
 (:durative-action drop
 :parameters (?o - object ?l - location ?r - robot ?t - tool)
 :duration (= ?duration 5)
@@ -73,7 +73,7 @@ Drop was also unchanged from the previous PDDL domain.
     (at start(not (robotcarrying ?r ?t ?o)))
   )
 )
-"""
+```
 
 ## Mapping the hospital
 
