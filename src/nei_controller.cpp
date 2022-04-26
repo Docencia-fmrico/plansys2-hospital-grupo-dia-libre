@@ -39,7 +39,7 @@ public:
   {
     domain_expert_ = std::make_shared<plansys2::DomainExpertClient>();
     planner_client_ = std::make_shared<plansys2::PlannerClient>();
-    problem_expert_ = std::make_shared<plansys2::ProblemExpertClient>();
+    problem_expert_ = std::make_shared<plansys2::problem_expert_Client>();
     executor_client_ = std::make_shared<plansys2::ExecutorClient>();
 
     init_knowledge();
@@ -64,21 +64,16 @@ public:
     problem_expert_->addInstance(plansys2::Instance{"room8", "room"});
     problem_expert_->addInstance(plansys2::Instance{"room9", "room"});
     problem_expert_->addInstance(plansys2::Instance{"room10", "room"});
-    
-    problem_expert_->addInstance(plansys2::Instance{"josetost", "chema"});
 
     problem_expert_->addInstance(plansys2::Instance{"gripper", "tool"});
 
-    problemexpert->addPredicate(plansys2::Predicate("(robot_at tiago room1)"));
-    problemexpert->addPredicate(plansys2::Predicate("(objectAt ball1 room2)"));
-    problemexpert->addPredicate(plansys2::Predicate("(objectAt ball2 room4)"));
-    problemexpert->addPredicate(plansys2::Predicate("(robotTool tiago gripper)"));
-    problemexpert->addPredicate(plansys2::Predicate("(toolFree gripper)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(robot_at tiago room1)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(objectAt ball1 room2)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(objectAt ball2 room4)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(robotTool tiago gripper)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(toolFree gripper)"));
 
-
-
-
-
+  }
 
   void step()
   {
@@ -87,7 +82,7 @@ public:
         { 
           // Set the goal for next state
           problem_expert_->setGoal(
-            plansys2::Goal("(and (robotAt r2d2 room7) (objectAt toy room9) (objectAt ball corridor3))"));
+            plansys2::Goal("(and (objectAt ball1 room3))"));
 
           // Compute the plan
           auto domain = domain_expert_->getDomain();
@@ -121,10 +116,9 @@ public:
               std::cout << "Successful finished " << std::endl;
 
               // Cleanning up
-              problem_expert_->removePredicate(plansys2::Predicate("(patrolled wp1)"));
 
               // Set the goal for next state
-              problem_expert_->setGoal(plansys2::Goal("(and(patrolled wp2))"));
+              problem_expert_->setGoal(plansys2::Goal("(and (objectAt ball2 room8))"));
 
               // Compute the plan
               auto domain = domain_expert_->getDomain();
@@ -182,10 +176,10 @@ public:
               std::cout << "Successful finished " << std::endl;
 
               // Cleanning up
-              problem_expert_->removePredicate(plansys2::Predicate("(patrolled wp1)"));
+              problem_expert_->removePredicate(plansys2::Predicate("(and (objectAt ball1 room3) (objectAt ball2 room8))"));
 
               // Set the goal for next state
-              problem_expert_->setGoal(plansys2::Goal("(and(patrolled wp2))"));
+              problem_expert_->setGoal(plansys2::Goal("(and (objectAt ball1 room1) (objectAt ball2 room1))"));
 
               // Compute the plan
               auto domain = domain_expert_->getDomain();
@@ -242,7 +236,7 @@ public:
               std::cout << "Successful finished " << std::endl;
 
               // Cleanning up
-              problem_expert_->removePredicate(plansys2::Predicate("(patrolled wp1)"));
+              problem_expert_->removePredicate(plansys2::Predicate("(and (objectAt ball1 room1) (objectAt ball2 room1))"));
           
               state_ = END;
 
@@ -283,7 +277,7 @@ private:
   Problem state_;
   std::shared_ptr<plansys2::DomainExpertClient> domain_expert_;
   std::shared_ptr<plansys2::PlannerClient> planner_client_;
-  std::shared_ptr<plansys2::ProblemExpertClient> problem_expert_;
+  std::shared_ptr<plansys2::problem_expert_Client> problem_expert_;
   std::shared_ptr<plansys2::ExecutorClient> executor_client_;
 };
 

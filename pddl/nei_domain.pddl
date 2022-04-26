@@ -2,7 +2,6 @@
 (:requirements :strips :typing :negative-preconditions :adl :fluents :durative-actions)
 (:types
   room - location
-  door elevator - connector
   robot object tool - item
 )
 (:predicates 
